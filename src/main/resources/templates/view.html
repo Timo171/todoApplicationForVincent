@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All Todos</title>
+</head>
+<body>
+    <table border="1" bordercolor="blue">
+        <tr>
+            <th>ID</th>
+            <th>Created By</th>
+            <th>Created At</th>
+            <th>Finished</th>
+            <th>Finished At</th>
+            <th>Actions</th>
+            <th>Action IDs</th>
+            <th>Actions Finished</th>
+            <th>Actions FinishedAt</th>
+        </tr>
+        <tr th:each="todo : ${todos}">
+            <td th:text="${todo.id}">ID</td>
+            <td th:text="${todo.createdBy}">Created By</td>
+            <td th:text="${todo.createdAt}">Created At</td>
+            <td th:text="${todo.finished}">Finished</td>
+            <td th:text="${todo.finishedAt}">Finished At</td>
+            <td>
+                <table>
+                    <tr th:each="action : ${todo.actions}">
+                        <td th:text="${action.action}"></td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr th:each="action : ${todo.actions}">
+                        <td th:text="${action.id}"></td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr th:each="action : ${todo.actions}">
+                        <td th:text="${action.finished}"></td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr th:each="action : ${todo.actions}">
+                        <td th:text="${action.finishedAt}"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

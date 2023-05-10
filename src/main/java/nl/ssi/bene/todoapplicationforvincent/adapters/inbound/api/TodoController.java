@@ -12,7 +12,9 @@ import nl.ssi.bene.todoapplicationforvincent.application.ports.inbound.TodoInbou
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -74,6 +76,11 @@ public class TodoController {
     @ExceptionHandler(value = {CannotFindUserException.class, CannotFindTodoException.class, CannotFindTaskException.class} )
     public ResponseEntity<String> handleCannotFindException(RuntimeException exception){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+    }
+
+    @GetMapping("/view")
+    public ModelAndView view(Model model){
+        return new ModelAndView("view", "todos", todoInbound.getAllTodos());
     }
 
 }
