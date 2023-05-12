@@ -2,7 +2,6 @@
 
 project name: todoApplicationForVincent
 
-###API Documentation
-[Documentation](src/main/resources/documentation/api.md)
-
-[Doc HTML](src/main/resources/templates/readme.html)
+After starting application one can find here some more<br> 
+**[Information](http://localhost:9090/)** <br>
+on the data, the api endpoints etc.
